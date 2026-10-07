@@ -22,7 +22,7 @@ const CARD_TONES = ["tone-1", "tone-2", "tone-3", "tone-4", "tone-5"];
 
 function Index() {
   const { data: songs } = useSuspenseQuery(songsQuery);
-  const [current, setCurrent] = useState<Song>(songs[0]);
+  const [current, setCurrent] = useState<Song>(songs[0]!);
   const [filter, setFilter] = useState("Todos");
   const genres = ["Todos", ...Array.from(new Set(songs.map((s) => s.genre)))];
   const list = filter === "Todos" ? songs : songs.filter((s) => s.genre === filter);
